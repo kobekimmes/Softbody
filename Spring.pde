@@ -10,7 +10,7 @@ class Spring {
     this.k = k;
     this.l = this.particleDist();
     
-    this.dampening = 0.01;
+    this.dampening = 0.2;
     
   }
   
