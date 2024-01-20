@@ -12,5 +12,14 @@ class Spring {
     
   }
   
+  public void show() {
+    
+    stroke(127);
+    line(this.a.x, this.a.y, this.b.x, this.b.y);
+    this.a.show();
+    this.b.show();
+    
+  }
+  
   
 }
