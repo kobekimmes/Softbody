@@ -30,20 +30,20 @@ class Particle {
   public void reflect() {
     if (this.x <= this.r) {
       this.x = this.r;
-      this.vx *= -0.9;
+      this.vx *= -1;
     }
     if (this.x >= width - this.r) {
       this.x = width - this.r;
-      this.vx *= -0.9;
+      this.vx *= -1;
     }
     if (this.y <= this.r ) {
       this.y = this.r;
-      this.vy *= -0.9;
+      this.vy *= -1;
     }
     
     if (this.y >= height - this.r ) {
       this.y = height - this.r;
-      this.vy *= -0.9;
+      this.vy *= -1;
     }
     
   }
@@ -65,7 +65,7 @@ class Particle {
   }
   
   public void lock() {
-    this.locked = true;
+    this.locked = !this.locked;
     
   }
   

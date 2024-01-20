@@ -28,9 +28,9 @@ class Body {
     
   }
 
-  public void applyGravity() {
+  public void applyGravity(float g) {
     for (Particle pt : this.p) {
-      pt.addForce(0, 10);
+      pt.addForce(0, g);
     }
   }
 
@@ -54,8 +54,12 @@ class Body {
 
   public void drag(float x, float y) {
     if (mousePressed) {
+      this.p[0].lock();
       this.p[0].x = x;
       this.p[0].y = y;
+      this.p[0].vx = 0;
+      this.p[0].vy = 0;
+      this.p[0].lock();
     }
   }
 }

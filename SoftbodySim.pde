@@ -27,6 +27,23 @@ Spring[] s = new Spring[]{s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13
 
 Body b = new Body(p, s);
 
+
+Particle pt1 = new Particle(400, 100);
+Particle pt2 = new Particle(400, 200);
+Particle pt3 = new Particle(400, 300);
+Particle pt4 = new Particle(400, 400);
+
+Spring sp1 = new Spring(pt1, pt2, 0.2);
+Spring sp2 = new Spring(pt2, pt3, 0.2);
+Spring sp3 = new Spring(pt3, pt4, 0.2);
+
+
+Particle[] peez = new Particle[]{pt1, pt2, pt3, pt4};
+Spring[] sping = new Spring[]{sp1, sp2, sp3};
+
+Body string = new Body(peez, sping);
+
+
 void settings() {
   width = screen;
   height = screen;
@@ -34,15 +51,24 @@ void settings() {
 
 
 void setup(){
-  b.applyGravity();
-  b.setK(0.01);
+  //string.p[0].lock();
+  //string.applyGravity(100);
+  
+  
+  b.applyGravity(10);
+  b.setK(0.01); //For whatever reason k-values over 0.5 go insane, I honestly recommend a k of 0.01 or below
   b.setDampening(0.99);
 }
 
 void draw() {
   background(255);
   
+  //string.drag(mouseX, mouseY);
+  //string.update();
+  //string.show();
+  
+  
+  b.drag(mouseX, mouseY);  //Only recommend on low k-value for whatever reason (low as in <0.05)
   b.update();
   b.show();
-  b.drag(mouseX, mouseY);
 }
