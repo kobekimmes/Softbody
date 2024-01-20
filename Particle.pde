@@ -3,7 +3,7 @@
 class Particle {
   
   float x, y, r, m, vx, vy, ax, ay;
-  boolean locked
+  boolean locked;
   
   
   public Particle(float x, float y) {
@@ -15,9 +15,9 @@ class Particle {
     this.vx = 0;
     this.vy = 0;
     
-    this.ax = 0;
-    this.ay = 0;
+    this.locked = false;
     
+    this.addForce(0, 3);
     
     
   }
@@ -43,12 +43,21 @@ class Particle {
     if (!this.locked) {
       
       this.reflect();
-      this.vx += this.ax;
-      this.vy += this.ay;
       
       this.x += vx;
       this.y += vy;
     }
+  }
+  
+  public void addForce(float xC, float yC) {
+    this.vx += xC / this.m;
+    this.vy += yC / this.m;
+    
+  }
+  
+  public void lock() {
+    this.locked = true;
+    
   }
   
   
