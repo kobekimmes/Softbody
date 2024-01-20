@@ -35,12 +35,14 @@ void settings() {
 
 void setup(){
   b.applyGravity();
-  b.setK(0.5);
-  //p1.lock();
+  b.setK(0.01);
+  b.setDampening(0.99);
 }
 
 void draw() {
   background(255);
+  
   b.update();
-
+  b.show();
+  b.drag(mouseX, mouseY);
 }
