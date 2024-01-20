@@ -38,9 +38,9 @@ class Spring {
   
   
   public void update() {
-    float springForceX = -this.k * (this.particleDist() - this.l) * (this.getComponent(false))/this.particleDist() * this.dampening;
-    float springForceY = -this.k * (this.particleDist() - this.l) * (this.getComponent(true))/this.particleDist() * this.dampening;
-    this.a.addForce(springForceX, springForceY);
+    float springForceX = this.k * (this.particleDist() - this.l) * (this.getComponent(true))/this.particleDist() * this.dampening;
+    float springForceY = this.k * (this.particleDist() - this.l) * (this.getComponent(false))/this.particleDist() * this.dampening;
+    this.a.addForce(-springForceX, -springForceY);
     this.b.addForce(springForceX, springForceY);
     
     this.a.update();

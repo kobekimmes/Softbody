@@ -17,7 +17,7 @@ class Particle {
     
     this.locked = false;
     
-    this.addForce(0, 3);
+    this.addForce(0, 2);
     
     
   }
