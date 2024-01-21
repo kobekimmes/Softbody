@@ -54,12 +54,15 @@ class Body {
 
   public void drag(float x, float y) {
     if (mousePressed) {
-      this.p[0].lock();
+      this.lockBody();
       this.p[0].x = x;
       this.p[0].y = y;
-      this.p[0].vx = 0;
-      this.p[0].vy = 0;
-      this.p[0].lock();
+      
+      for (Particle p : this.p) {
+        p.vx = 0;
+        p.vy = 0;
+      }
+      this.lockBody();
     }
   }
 }

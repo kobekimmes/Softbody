@@ -59,8 +59,8 @@ class Particle {
   }
   
   public void addForce(float xC, float yC) {
-    this.vx += xC / this.m;
-    this.vy += yC / this.m;
+    this.vx += xC;
+    this.vy += yC;
     
   }
   
